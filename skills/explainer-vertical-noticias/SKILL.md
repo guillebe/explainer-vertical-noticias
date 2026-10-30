@@ -16,7 +16,7 @@ La idea de fondo: el agente hace muchas vueltas de producción y de control; la 
 - Si el proyecto tiene lineamientos propios (estilo, referencias de nivel, marca), leelos antes del guion.
 - Acordá con la persona tres parámetros, o usá los valores por defecto:
   - **Duración:** 20 s. Entre 15 y 60 s funciona igual; más largo deja de ser un short.
-  - **Formato:** 9:16, 1080×1920. Si va a un feed que recorta, 4:5 (1080×1350) o 1:1.
+  - **Formato:** 9:16, compuesto en 720×1280 (`data-width="720" data-height="1280"`): son 2,25 veces menos píxeles por cuadro que 1080×1920, así que renderiza más rápido y pesa menos, y en un celular no se nota. Si la persona pide 1080×1920, multiplicá por 1,5 todas las medidas en píxeles de este skill. Si va a un feed que recorta, 4:5 (720×900) o 1:1 (720×720).
   - **Idioma:** el de la nota o el del pedido. Todo lo que va en pantalla, en ese idioma.
 - **Destino:** dónde se publica (redes, sitio propio, presentación). Define la zona segura y si puede llevar link.
 
@@ -64,8 +64,8 @@ Reglas de composición:
 - **Un dato general no va sobre la foto de un lugar concreto**: se lee como si fuera de ese lugar.
 - **El ritmo está adentro de cada escena** (algo entra, se dibuja o se mueve cada 1 o 2 s), no en sumar cortes y datos.
 - **Gráficos que se dibujan al ritmo de la frase**, con un sistema fijo: fondo liso, raya de acento, título con unidad, fuente abajo.
-- **Créditos y fuentes legibles** (30 px o más en 1080 de ancho).
-- **La zona segura depende del destino.** Para redes en 9:16, el texto va entre 260 px desde arriba, 480 px desde abajo y 180 px desde la derecha. Si no va a redes, fuentes y créditos pueden ir al pie del cuadro.
+- **Créditos y fuentes legibles** (20 px o más en 720 de ancho).
+- **La zona segura depende del destino.** Para redes en 9:16, el texto va entre 175 px desde arriba, 320 px desde abajo y 120 px desde la derecha (en 720×1280). Si no va a redes, fuentes y créditos pueden ir al pie del cuadro.
 - **Un plano horizontal en vertical va completo, entre barras diseñadas**, no recortado (se pixela) ni sobre un relleno desenfocado (se ve barato). Recortá las marcas de agua del canal.
 - **Lo decorativo no parece documento:** un trazo o un gráfico ilustrativo va sin ejes ni valores, y sin el aspecto de un registro real.
 - **Un esquema es esquema o es figurativo, no a mitad de camino.** Rotulá solo lo que dan las fuentes y marcalo («Esquema · posiciones aproximadas»).
@@ -80,7 +80,7 @@ Si un medio publicó audios del hecho (grabaciones, llamadas), pedí el ok antes
 
 ### C. Render, nivel y crítica (punto de control C)
 
-1. Renderizá a `<proyecto>-vN.mp4` con un número nuevo. El render guarda los cuadros en disco (de 1,2 a 1,4 GB para 20 s): si falla por espacio, usá `--workers 1`, que codifica mientras captura.
+1. Renderizá a `<proyecto>-vN.mp4` con un número nuevo. El render guarda los cuadros en disco (en 1080×1920, de 1,2 a 1,4 GB para 20 s; en 720×1280, proporcionalmente menos): si falla por espacio, usá `--workers 1`, que codifica mientras captura.
 2. Corré el control de nivel:
    ```bash
    python3 scripts/medir_nivel.py <proyecto>-vN.mp4 --html index.html

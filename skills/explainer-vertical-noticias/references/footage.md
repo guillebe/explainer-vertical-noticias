@@ -31,13 +31,13 @@ ffmpeg -ss 18.4 -t 1.8 -i fuente.webm -an -c:v libx264 -crf 19 -preset slow -pix
 
 Plano horizontal completo para meter entre barras (recorta las marcas de agua del canal en los bordes):
 ```bash
-ffmpeg -ss 6 -t 2.6 -i compilado.mp4 -an -vf "crop=1600:900:60:180,scale=1080:608:flags=lanczos" -c:v libx264 -crf 18 -pix_fmt yuv420p media/plano-ancho.mp4
+ffmpeg -ss 6 -t 2.6 -i compilado.mp4 -an -vf "crop=1600:900:60:180,scale=720:405:flags=lanczos" -c:v libx264 -crf 18 -pix_fmt yuv420p media/plano-ancho.mp4
 ```
-En la composición: el video en un contenedor de 1080×608 centrado, fondo con diseño (no negro liso: parece una falla), titular y fecha arriba, crédito abajo. Si animás la escala, hacelo sobre un contenedor interno, nunca sobre el `<video>`.
+En la composición: el video en un contenedor de 720×405 centrado, fondo con diseño (no negro liso: parece una falla), titular y fecha arriba, crédito abajo. Si animás la escala, hacelo sobre un contenedor interno, nunca sobre el `<video>`.
 
 Plano vertical que ya viene 9:16: usalo a pantalla completa.
 
-Fotos de Commons: pedí la miniatura de 2000 px (`iiurlwidth=2000`) y no la original de 6000 px.
+Fotos de Commons: pedí una miniatura de unos 1500 px (`iiurlwidth=1500`), que alcanza para zoom en 720, y no la original de 6000 px.
 
 ## Mapas
 

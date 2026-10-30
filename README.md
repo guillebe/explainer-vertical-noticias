@@ -1,6 +1,6 @@
 # Explainer vertical de noticias
 
-Una skill para agentes (Claude Code, Codex y otros) que convierte una nota periodística, o un concepto con sus fuentes, en un explainer vertical corto con [HyperFrames](https://github.com/heygen-com/hyperframes). Por defecto, 20 s en 9:16 (1080×1920), en el idioma de la nota; la duración (de 15 a 60 s), el formato y el destino se acuerdan al empezar. Una persona decide en tres puntos de control: guion, storyboard y render.
+Una skill para agentes (Claude Code, Codex y otros) que convierte una nota periodística, o un concepto con sus fuentes, en un explainer vertical corto con [HyperFrames](https://github.com/heygen-com/hyperframes). Por defecto, 20 s en 9:16, compuesto en 720×1280 para que renderice rápido y pese poco, en el idioma de la nota; la duración (de 15 a 60 s), el formato y el destino se acuerdan al empezar. Una persona decide en tres puntos de control: guion, storyboard y render.
 
 Salió del taller «Contando historias verticales con agentes», de Media Party Buenos Aires 2026.
 
