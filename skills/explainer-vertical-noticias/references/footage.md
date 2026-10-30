@@ -2,23 +2,24 @@
 
 ## Dónde buscar
 
-1. **Wikimedia Commons**, con `scripts/buscar_commons.py`. Para un hecho reciente suele haber una categoría (`--categoria "2026 Panama earthquake"`). La ficha trae licencia, fecha de toma, autor y descripción con el lugar: es lo que va a `source.md`.
-   - Las fotos y videos de organismos de EE. UU. (Ejército, Departamento de Estado, USGS) suelen ser de dominio público.
-   - `--filtro "collapsed|damage"` y `--licencia "Public domain|CC BY"` ayudan a quedarse con planos de daños y licencias claras.
-2. **DVIDS** (archivo audiovisual del Departamento de Defensa de EE. UU.): material en bruto de dominio público, pero pide crear una cuenta para descargar. Eso lo hace la persona.
-3. **Compilados de medios en YouTube** (con `yt-dlp`): útiles para el momento exacto del hecho, pero con derechos y con planos de origen dudoso. Si el usuario decide usarlos para uso interno, registralo y no publiques el repo con esos archivos.
+En este orden, de menos a más riesgo:
 
-No hay footage de dominio público del momento de un sismo: lo que hay es el después. Decilo al proponer el guion.
-
-**Fotos de agencia** (EFE, Europa Press, Reuters): tienen derechos. Solo con el ok de la persona, con el crédito completo en pantalla («Foto: EFE / autor · fecha»), y registradas en `source.md` como de uso restringido.
+1. **Material propio o del medio** para el que se hace el video: fotos y videos con derechos claros.
+2. **Wikimedia Commons**, con `scripts/buscar_commons.py`. Para un hecho reciente suele haber una categoría (`--categoria "2026 Panama earthquake"`). La ficha trae licencia, fecha de toma, autor y descripción con el lugar: es lo que va a `source.md`. `--filtro "collapsed|damage"` y `--licencia "Public domain|CC BY"` ayudan a quedarse con planos y licencias claras.
+3. **Material oficial con licencia abierta:** organismos públicos, agencias de emergencia, servicios geológicos o meteorológicos. Revisá la licencia de cada uno: el dominio público de los organismos federales de EE. UU. no vale igual para los de otros países, y muchos piden crédito.
+4. **Archivos audiovisuales públicos** (por ejemplo, DVIDS en EE. UU.): material en bruto, a veces con cuenta para descargar. La cuenta la crea la persona.
+5. **Fotos de agencia** (EFE, Reuters, AP, Europa Press): tienen derechos. Solo con el ok de la persona, con el crédito completo en pantalla («Foto: agencia / autor · fecha») y registradas en `source.md` como de uso restringido.
+6. **Compilados de medios en redes o YouTube** (con `yt-dlp`): útiles para el momento exacto del hecho, pero con derechos y con planos de origen dudoso. Solo para uso interno, registrado, y no se publica nada con esos archivos sin licencia.
 
 **Ilustraciones y montajes de medios no son fotos del hecho.** Si el epígrafe dice «Imagen ilustrativa» o «Montaje», no van.
+
+Si no hay material del momento exacto (en un sismo casi nunca lo hay: lo que hay es el después), decilo al proponer el guion y resolvelo con gráfico o esquema.
 
 ## Qué plano sí y qué plano no
 
 - **Lugar y fecha verificados o no va.** Un derrumbe acreditado «Video: X» sin lugar ni fecha fue un P0: no se sabía si era de ese sismo ni de ese país, y como iba después de «Epicentro: Azuero» se leía como si fuera de ahí.
-- **Que el plano no diga más que la nota.** Un colapso total cuando la nota habla de daños parciales exagera.
-- **Cuidado con el protagonista.** Si la única presencia humana son rescatistas de un país extranjero y la nota no habla de ayuda internacional, el short sugiere una historia que la nota no tiene. Preferí planos de daños, sin personas identificables.
+- **Que el plano no diga más que la fuente.** Un colapso total cuando la nota habla de daños parciales exagera.
+- **Cuidado con el protagonista.** Si la única presencia humana son rescatistas de un país extranjero y la fuente no habla de ayuda internacional, el video sugiere una historia que la fuente no tiene. Preferí planos de daños, sin personas identificables.
 - **Un plano casi quieto se lee como foto.** Medí el movimiento si importa (`select='gte(scene,0)'`, cambio medio por cuadro); si es casi cero, que el crédito no prometa «video».
 
 ## Recetas de encuadre (ffmpeg)
@@ -41,4 +42,4 @@ Fotos de Commons: pedí la miniatura de 2000 px (`iiurlwidth=2000`) y no la orig
 ## Mapas
 
 - Si el círculo o la máscara del mapa puede mostrar el borde de la imagen durante un zoom, calculá la escala mínima para que el borde quede tapado, o fundí el mapa en el color de fondo con un degradé. Extender la imagen con un color plano deja una costura visible.
-- El epicentro va como «Epicentro aproximado» y con la fuente (USGS).
+- Un punto en el mapa que no es exacto se rotula como aproximado («Epicentro aproximado») y lleva su fuente.
