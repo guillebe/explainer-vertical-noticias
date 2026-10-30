@@ -27,7 +27,14 @@ ffmpeg -i audio-real.wav -ss 6.0 -t 20 -i musica.m4a -filter_complex \
 ```
 `loudnorm` en una pasada suele quedar unos 2,5 dB abajo de −14 cuando hay silencios: por eso el `volume` y el limitador al final. Verificá con `ebur128=peak=true` (objetivo: I ≈ −14 LUFS, pico ≤ −1 dBFS).
 
-Para sumar otro momento con audio real, agregalo con `adelay=<ms>|<ms>` y bajá la música en ese tramo con otra condición en el `volume`.
+Para sumar otro momento con audio real (una voz a los 8 s, otra a los 13 s), **no uses `adelay` después de `loudnorm`**: corre las marcas de tiempo en lugar de agregar silencio, y la voz queda al principio. Concatená silencio explícito delante de cada voz y volvé a 48 kHz después de cada `loudnorm`:
+```bash
+ffmpeg -i voz.m4a -filter_complex \
+"anullsrc=r=48000:cl=stereo,atrim=0:8.0[sil];\
+[0]loudnorm=I=-16,aresample=48000,aformat=channel_layouts=stereo[v];\
+[sil][v]concat=n=2:v=0:a=1[o]" -map "[o]" media/voz-en-8s.wav
+```
+Después mezclá cada pista con `amix=normalize=0` y bajá la música mientras suenan las voces (en el choque de trenes, al 28 %). Medí al final que la banda dure lo que el video.
 
 Si el comando se arma con muchas entradas, armá la lista de argumentos en Python (`subprocess.run([...])`): en zsh, una variable con varios `-i` no se separa en palabras.
 
@@ -36,3 +43,4 @@ Si el comando se arma con muchas entradas, armá la lista de argumentos en Pytho
 - La del usuario primero (por ejemplo, generada con Suno). Copiala a `media/` y acreditála en `source.md`.
 - Si no hay: el catálogo de HeyGen con `media-use` (necesita la CLI de `heygen`), o una librería libre de regalías como Pixabay Music (verificá la licencia de cada tema).
 - Antes de mezclar, mirá la forma de onda (`showwavespic`) y la energía por segundo para elegir el tramo de 20 s que calza con el arco del video, no el principio por defecto.
+- Medí la energía audible por segundo (filtrada por encima de 200 Hz), no la sonoridad total: un tema puede tener el pico donde no lo oís en un celular. Hacé coincidir el pico con el momento fuerte del video y la bajada con el balance o el cierre.

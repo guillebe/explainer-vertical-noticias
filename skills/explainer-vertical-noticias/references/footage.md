@@ -10,6 +10,10 @@
 
 No hay footage de dominio público del momento de un sismo: lo que hay es el después. Decilo al proponer el guion.
 
+**Fotos de agencia** (EFE, Europa Press, Reuters): tienen derechos. Solo con el ok de la persona, con el crédito completo en pantalla («Foto: EFE / autor · fecha»), y registradas en `source.md` como de uso restringido.
+
+**Ilustraciones y montajes de medios no son fotos del hecho.** Si el epígrafe dice «Imagen ilustrativa» o «Montaje», no van.
+
 ## Qué plano sí y qué plano no
 
 - **Lugar y fecha verificados o no va.** Un derrumbe acreditado «Video: X» sin lugar ni fecha fue un P0: no se sabía si era de ese sismo ni de ese país, y como iba después de «Epicentro: Azuero» se leía como si fuera de ahí.

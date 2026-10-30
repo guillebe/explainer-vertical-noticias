@@ -5,7 +5,7 @@ description: Hacer o mejorar un explainer vertical de noticias (short, reel o Ti
 
 # Explainer vertical de noticias
 
-Un short de noticias de 20 s hecho por un agente, con una persona que dirige en tres puntos de control. Sale de iterar un explainer del terremoto de Panamá de octubre de 2026 de la v4 a la v12, en el taller de Media Party Buenos Aires 2026.
+Un short de noticias de 20 s hecho por un agente, con una persona que dirige en tres puntos de control. Sale de iterar dos explainers en el taller de Media Party Buenos Aires 2026: el terremoto de Panamá (de la v4 a la v12) y el choque de trenes en Urda, Toledo (de la v1 a la v7).
 
 La idea de fondo: el agente hace muchas vueltas de producción y de control; la persona pone el criterio editorial y decide en los puntos de control. Ningún control automático ve errores de contenido, así que siempre hay crítica adversarial sobre el render.
 
@@ -23,11 +23,17 @@ Armá o actualizá `source.md` en la carpeta del ejemplo: la nota con link, fech
 
 Mirá la fecha: si el balance es de hace días, el short tiene que decir de cuándo es («Sinaproc, segundo informe (10/10)»). Proyectar un balance viejo sin fecha hace mentir al gancho.
 
+- **Los datos cambian mientras trabajás.** Un balance se actualiza por hora y el informe oficial puede llegar al día siguiente (en el choque de trenes, el primer informe del organismo investigador corrigió la velocidad y dos horarios después de la v7). Rechequeá cada cifra antes de cada render; si cambió, va en una versión nueva y las anteriores quedan con los datos que tenían.
+- **Verificá la firma.** El autor está en `<meta name="author">` o en la firma visible; el JSON-LD a veces pone el crédito de la foto como autor.
+- **Las estimaciones van atribuidas** («≈ 200 km/h · estimación del ministro»), y si después hay una fuente mejor, se reemplaza.
+- **Conceptos distintos no se mezclan** aunque tengan la misma unidad: el tope del reglamento (40 km/h) no es la máxima del tramo (80 km/h).
+
 ### A. Guion por tiempos (punto de control A)
 
 Proponé una tabla `t · qué se ve · texto` y esperá el ok antes de escribir código. Reglas que salen de las críticas:
 
 - **Una sola idea.** En la v5 entraron nueve datos en 20 s y no se entendía ninguno. Fecha, magnitud o hecho central, lugar y un bloque de consecuencias alcanza.
+- **Buscá el dato que hace la historia.** A veces es un contraste: «El reglamento pedía 40 km/h; el AVE iba a unos 200» dice más que la regla sola.
 - **El gancho tiene el dato y la fecha**, entero desde el primer cuadro. Sin texto, el primer medio segundo de un footage puede leerse como otra cosa.
 - **Tiempo de lectura:** cada texto dura al menos 0,5 s + 0,3 s por palabra. Unas 50 palabras en total para 20 s.
 - **Nada de unidades mezcladas en un mismo gráfico** («viviendas afectadas», «residencias», «con daños parciales» no se suman ni se comparan), y no inventes totales que la nota no da.
@@ -51,14 +57,20 @@ Reglas de composición que salieron de iterar:
 - **Créditos y fuentes de 30 px o más, dentro de la zona segura** (texto entre 260 px desde arriba, 480 px desde abajo y 180 px desde la derecha).
 - **Un plano horizontal en vertical va completo, entre barras diseñadas**, no recortado a 9:16 (se pixela) ni sobre un relleno desenfocado (se ve barato). Recortá las marcas de agua del canal.
 - **Lo decorativo no parece documento:** un trazo de sismógrafo o un gráfico ilustrativo sin ejes ni valores, y sin el aspecto de un registro real.
+- **Un esquema es esquema o es figurativo, no a mitad de camino.** En el choque de trenes funcionó como diagrama de señalización: una línea para la vía, trazos con número para los trenes, la señal en rojo. Rotulá solo lo que dan las notas y marcalo («Esquema · posiciones aproximadas»).
+- **El movimiento tiene que ser coherente con los datos.** Un tren que acelera justo antes del choque contradice los registros de velocidad; un vehículo que salta de posición entre escenas, también.
+- **No cortes entre dos fondos iguales.** Si el dato siguiente vive en el mismo esquema, metelo adentro (una señal de velocidad en la vía) en lugar de pasar a una placa aparte.
+- **La zona segura depende de dónde se publica.** Para redes, todo adentro; si no va a redes, fuentes y créditos pueden ir al pie del cuadro.
 
 ### Sonido
 
 Leé `references/sonido.md`. El audio real del hecho va adelante, la música baja debajo de ese audio, todo normalizado a −14 LUFS. Los graves por debajo de unos 110 Hz no se oyen en un celular: medí la banda audible, no solo la sonoridad.
 
+Si un medio publicó audios del hecho (grabaciones, llamadas), pedí el ok antes de bajarlos, acreditalos y poné la transcripción en pantalla con quién habla. Alargá la escena lo que haga falta para que entre la frase entera: el clip puede pasar de 20 s.
+
 ### C. Render, nivel y crítica (punto de control C)
 
-1. Renderizá a `<ejemplo>-vN.mp4` con un número nuevo.
+1. Renderizá a `<ejemplo>-vN.mp4` con un número nuevo. El render guarda los cuadros en disco (de 1,2 a 1,4 GB para 20 s): si falla por espacio, usá `--workers 1`, que codifica mientras captura.
 2. Corré el control de nivel:
    ```bash
    python3 scripts/medir_nivel.py <ejemplo>-vN.mp4 --html index.html
