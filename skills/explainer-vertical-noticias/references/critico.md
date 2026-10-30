@@ -19,7 +19,7 @@ Revisá:
 1. VERDAD contra source.md: cada número, palabra, atribución y fecha. ¿Las estimaciones están atribuidas? ¿Algún dato cambió desde que se escribió source.md? Unidades mezcladas en un gráfico, totales que la nota no da, énfasis invertido. ¿Alguna imagen sugiere algo que la nota no dice (un dato nacional sobre un lugar concreto, un plano sin lugar ni fecha, algo decorativo que parece documento)? ¿El balance tiene fecha?
 2. GANCHO: primer segundo, sin sonido y con sonido. ¿Para qué dejarías de deslizar? ¿Lo sostiene la nota?
 3. CIERRE: ¿deja una pregunta real que la nota contesta?
-4. LEGIBILIDAD: cada texto ≥ 0,5 s + 0,3 s por palabra; ¿alguna cifra aparece con un valor que no es el real (contadores)? Zonas seguras según el destino (en 9:16 para redes, texto entre 260 px desde arriba, 480 px desde abajo y 180 px desde la derecha); créditos de 30 px o más.
+4. LEGIBILIDAD: cada texto ≥ 0,5 s + 0,3 s por palabra; ¿alguna cifra aparece con un valor que no es el real (contadores)? Zonas seguras según el destino (en 9:16 para redes, en 720×1280: texto entre 175 px desde arriba, 320 px desde abajo y 120 px desde la derecha); créditos de 20 px o más en 720 de ancho.
 5. AUDIO: ¿la música tapa el audio real? ¿El tono es adecuado para la nota?
 6. ENCUADRE: ¿quién es el protagonista humano y la nota lo respalda? ¿Créditos correctos?
 
