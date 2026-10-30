@@ -19,6 +19,7 @@ La idea de fondo: el agente hace muchas vueltas de producción y de control; la 
   - **Formato:** 9:16, compuesto en 720×1280 (`data-width="720" data-height="1280"`): son 2,25 veces menos píxeles por cuadro que 1080×1920, así que renderiza más rápido y pesa menos, y en un celular no se nota. Si la persona pide 1080×1920, multiplicá por 1,5 todas las medidas en píxeles de este skill. Si va a un feed que recorta, 4:5 (720×900) o 1:1 (720×720).
   - **Idioma:** el de la nota o el del pedido. Todo lo que va en pantalla, en ese idioma.
 - **Destino:** dónde se publica (redes, sitio propio, presentación). Define la zona segura y si puede llevar link.
+- **Llamado a la acción:** qué querés que haga quien terminó de ver (leer la nota completa, seguir la cobertura, seguir la cuenta) y con qué nombre (el medio, la cuenta, la web). Si la persona no lo define, el llamado es leer la fuente.
 
 ## El flujo
 
@@ -48,7 +49,11 @@ Proponé tres ganchos y una tabla `t · qué se ve · texto`, y esperá el ok an
 - **Tiempo de lectura:** cada texto dura al menos 0,5 s + 0,3 s por palabra. En total, unas 2,5 palabras por segundo de video (unas 50 para 20 s) y no más de 6 por placa.
 - **Nada de unidades mezcladas en un mismo gráfico**, y no inventes totales que la fuente no da.
 - **Seguí el énfasis de la fuente:** si destaca algo, el gráfico no lo puede dejar último.
-- **Cierre con una pregunta que la fuente contesta** y, si el destino lo permite, el link.
+- **Cierre con una pregunta que la fuente contesta**, y después **una placa de llamado a la acción**:
+  - Corta, de 6 palabras o menos, con un verbo y un nombre: «Leé la nota completa en elDiario.es», «Seguí la cobertura en @medio».
+  - Dura al menos 1,5 s y entra después de la pregunta, sin taparla. Pregunta y llamado pueden compartir pantalla si los dos se leen enteros.
+  - Dónde está el link depende del destino: en el video, si se puede tocar; si no, «link en la descripción» o «en la bio».
+  - Que el llamado lleve a lo que promete: si dice «la nota completa», el link es a esa nota.
 
 ### Footage y material
 
