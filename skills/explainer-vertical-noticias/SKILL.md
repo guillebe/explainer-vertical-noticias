@@ -19,7 +19,7 @@ La idea de fondo: el agente hace muchas vueltas de producción y de control; la 
   - **Formato:** 9:16, compuesto en 720×1280 (`data-width="720" data-height="1280"`): son 2,25 veces menos píxeles por cuadro que 1080×1920, así que renderiza más rápido y pesa menos, y en un celular no se nota. Si la persona pide 1080×1920, multiplicá por 1,5 todas las medidas en píxeles de este skill. Si va a un feed que recorta, 4:5 (720×900) o 1:1 (720×720).
   - **Idioma:** el de la nota o el del pedido. Todo lo que va en pantalla, en ese idioma.
 - **Destino:** dónde se publica (redes, sitio propio, presentación). Define la zona segura y si puede llevar link.
-- **Llamado a la acción:** qué querés que haga quien terminó de ver (leer la nota completa, seguir la cobertura, seguir la cuenta) y con qué nombre (el medio, la cuenta, la web). Si la persona no lo define, el llamado es leer la fuente.
+- **Llamado a la acción:** qué querés que haga quien terminó de ver (leer la nota completa, seguir la cobertura, seguir la cuenta) y con qué nombre (el medio, la cuenta, la web). Por defecto: **«Leé la nota completa en <medio>»**, con el nombre del medio de la nota (sin nota, «Leé más en <fuente principal>»).
 
 ## El flujo
 
